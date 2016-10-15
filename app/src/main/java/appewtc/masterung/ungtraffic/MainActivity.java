@@ -10,4 +10,4 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-}
+}   // Main Class นี่คือ คลาสหลัก
