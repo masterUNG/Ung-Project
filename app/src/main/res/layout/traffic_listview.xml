@@ -25,7 +25,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/textView2"
             android:textSize="@dimen/h1"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:textColor="@color/aText" />
 
         <TextView
             android:text="TextView"
@@ -33,6 +34,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textView3"
             android:textSize="@dimen/h2"
-            android:textStyle="normal|italic" />
+            android:textStyle="normal|italic"
+            android:textColor="@color/aText" />
     </LinearLayout>
 </LinearLayout>
