@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -48,16 +49,29 @@ public class MainActivity extends AppCompatActivity {
         //ListView Controller
         //Get Value from Class
         MyConstant myConstant = new MyConstant();
-        int[] ints = myConstant.getInts();
+        final int[] ints = myConstant.getInts();
 
         //Get Value Form xml
-        String[] titleStrings = getResources().getStringArray(R.array.title);
-        String[] detailStrings = getResources().getStringArray(R.array.detail);
+        final String[] titleStrings = getResources().getStringArray(R.array.title);
+        final String[] detailStrings = getResources().getStringArray(R.array.detail);
 
         //Create ListView
         TrafficAdapter trafficAdapter = new TrafficAdapter(MainActivity.this,
                 titleStrings, detailStrings, ints);
         listView.setAdapter(trafficAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                intent.putExtra("Title", titleStrings[i]);
+                intent.putExtra("Image", ints[i]);
+                intent.putExtra("Detail", detailStrings[i]);
+                startActivity(intent);
+
+            }
+        });
 
 
     }   // Main Method
